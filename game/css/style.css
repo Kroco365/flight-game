@@ -1,0 +1,38 @@
+/* Meridian Run — page and canvas styling.
+   The game is a single canvas scaled to fit the window, centred on a dark
+   sea-blue page. No web fonts and no network requests: system fonts only.
+   The 16:9 frame keeps the chase view and the HUD instruments in one look. */
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #0b1c2c;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+#game {
+  display: block;
+  width: min(100vw, calc(100vh * 16 / 9));
+  height: min(100vh, calc(100vw * 9 / 16));
+  background: #2f6fb4;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+/* Read aloud, never shown: the status line screen readers announce. */
+#status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
